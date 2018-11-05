@@ -8,6 +8,15 @@ public class main{
 		InputManager im = new InputManager();
 		im.getInput();
 		MathManager math = new MathManager(im.getPolynomial(), im.getPMax(), im.getAlphaMax());
-		//TODO use http://csharphelper.com/blog/2016/02/calculate-a-row-of-pascals-triangle-in-c/
+		
+		//debug start
+//		int[] polynomial_1 = {1,2,3,4,5};
+//		int[] polynomial_2 = {6,7,8,9,10};
+//		int[] polynomial_3 = math.addPolynomials(polynomial_1,polynomial_2);
+//		for (int i = 0; i < polynomial_3.length; i++)
+//		{
+//			System.out.println(polynomial_3[i]);
+//		}
+		//debug end
 	}
 }

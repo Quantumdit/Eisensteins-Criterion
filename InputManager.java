@@ -103,7 +103,7 @@ public class InputManager{
 					try
 					{
 						int input_int = Integer.parseInt(input_string);
-						polynomial_list.addFirst(input_int);
+						polynomial_list.addLast(input_int);
 						counter++;
 					}
 					catch (NumberFormatException e)
@@ -115,10 +115,10 @@ public class InputManager{
 			
 			//Insert linked list elements into array
 			int n = polynomial_list.size();
-			polynomial = new int[n*n];		//We make the polynomial array extra long so we can easily do math on it later
+			polynomial = new int[n];
 			for (int i = 0; i < n; i++)
 			{
-				polynomial[(n*n) - 1 - i] = polynomial_list.poll();
+				polynomial[i] = polynomial_list.poll();
 			}
 			
 			//Show input to user
@@ -129,11 +129,11 @@ public class InputManager{
 				
 				if (n-i-1 > 0)
 				{
-					System.out.print(polynomial[(n*n)-n+i] + "x^(" + (n-i-1) + ") + ");
+					System.out.print(polynomial[i] + "x^(" + (n-i-1) + ") + ");
 				}
 				else
 				{
-					System.out.print(polynomial[(n*n)-n+i]);
+					System.out.print(polynomial[i]);
 				}
 			}
 			System.out.println(", is this correct?");
