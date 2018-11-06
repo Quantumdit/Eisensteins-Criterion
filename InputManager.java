@@ -316,7 +316,7 @@ public class InputManager{
 		System.out.println();
 		System.out.println("We will use Eisenstein's Criterion on the polynomial with all shift values \"alpha\" such that alpha is less than or equal to \"alpha_max\".");
 		System.out.println("Please enter the value of alpha_max you would like to use.");
-		System.out.println("p_max must be a non-negative integer.");
+		System.out.println("alpha_max must be a non-negative integer.");
 		System.out.println("Enter \"b\" to go back one step, \"r\" to restart or \"q\" to quit.");
 		System.out.println();
 	}
