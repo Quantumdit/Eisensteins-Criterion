@@ -7,10 +7,20 @@ public class main{
 	public static void main(String arg[]){
 		InputManager im = new InputManager();
 		//debug start
-//		im.getInput();
-//		MathManager math = new MathManager(im.getPolynomial(), im.getPMax(), im.getAlphaMax());
-		int[] test_polynomial = {5,4,3,2,1};
-		MathManager math = new MathManager(test_polynomial, 20, 20);
+		im.getInput();
+		MathManager math = new MathManager(im.getPolynomial(), im.getAlphaMax());
+		LongPair result = math.multiEisensteinCriterion();
+		if (result.getFirst() == 0)
+		{
+			System.out.println("Eisenstein's Criterion was inconclusive.");
+		}
+		else
+		{
+			System.out.println("Eisenstein's Criterion was succesful with p = " + result.getFirst() + " and alpha = " + result.getSecond() + ".");
+		}
+		// MathManager math = new MathManager(im.getPolynomial(), im.getPMax(), im.getAlphaMax());
+//		int[] test_polynomial = {6,5,4,3,2,1};
+//		MathManager math = new MathManager(test_polynomial, 20, 20);
 		//debug end
 		
 		//debug start
@@ -39,13 +49,18 @@ public class main{
 		// }
 		//debug end
 		
+		
 		//debug start
-		int[] polynomial_5 = {0,0,1,0,-3};
-		System.out.println(math.singleEisensteinCriterion(polynomial_5, 2));
-		System.out.println(math.singleEisensteinCriterion(polynomial_5, 3));
-		System.out.println(math.singleEisensteinCriterion(polynomial_5, 5));
-		System.out.println(math.singleEisensteinCriterion(polynomial_5, 7));
-		System.out.println(math.singleEisensteinCriterion(polynomial_5, 11));
+//		int[] polynomial_5 = {3,15,-20,0,10,20};
+//		System.out.println(math.singleEisensteinCriterion(polynomial_5, 5));
+//		debug end
+		
+		//debug start
+		// for (int i = 0; i < im.getPolynomial().length; i++)
+		// {
+			// System.out.println(im.getPolynomial()[i]);
+		// }
+		// System.out.println(math.singleEisensteinCriterion(im.getPolynomial(), 5));
 		//debug end
 	}
 }

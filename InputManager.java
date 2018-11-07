@@ -7,29 +7,29 @@ import java.util.LinkedList;
 public class InputManager{
 	
 	private Scanner reader;
-	private int[] polynomial;
-	private int p_max;
-	private int alpha_max;
+	private long[] polynomial;
+	// private long p_max;
+	private long alpha_max;
 	
 	public void getInput(){
 		openReader();
 		userSetPolynomial();
-		userSetPMax();
+		// userSetPMax();
 		userSetAlphaMax();
 		closeReader();
 	}
 	
-	public int[] getPolynomial()
+	public long[] getPolynomial()
 	{
 		return polynomial;
 	}
 	
-	public int getPMax()
-	{
-		return p_max;
-	}
+	// public long getPMax()
+	// {
+		// return p_max;
+	// }
 	
-	public int getAlphaMax()
+	public long getAlphaMax()
 	{
 		return alpha_max;
 	}
@@ -49,11 +49,11 @@ public class InputManager{
 		printInstructionsPolynomial();
 		
 		//Take in input
-		LinkedList<Integer> polynomial_list = new LinkedList<Integer>();
+		LinkedList<Long> polynomial_list = new LinkedList<Long>();
 		boolean polynomial_confirmed = false;
 		while(polynomial_confirmed == false)
 		{
-			int counter = 0;
+			long counter = 0;
 			while(true)
 			{
 				if (counter == 0)
@@ -102,8 +102,8 @@ public class InputManager{
 				{
 					try
 					{
-						int input_int = Integer.parseInt(input_string);
-						polynomial_list.addLast(input_int);
+						long input_long = Long.parseLong(input_string);
+						polynomial_list.addLast(input_long);
 						counter++;
 					}
 					catch (NumberFormatException e)
@@ -115,7 +115,7 @@ public class InputManager{
 			
 			//Insert linked list elements into array
 			int n = polynomial_list.size();
-			polynomial = new int[n];
+			polynomial = new long[(int)n];
 			for (int i = 0; i < n; i++)
 			{
 				polynomial[i] = polynomial_list.poll();
@@ -173,62 +173,61 @@ public class InputManager{
 			}
 		}
 	}
-			//TODO set p_min and p_max, both integers strictly greater than 1 where p_min =< p_max
 			
-	public void userSetPMax()
-	{
-		printInstructionsPMax();
+	// public void userSetPMax()
+	// {
+		// printInstructionsPMax();
 	
-		//Take in input
-		boolean p_max_confirmed = false;
-		while(p_max_confirmed == false)
-		{
-			System.out.print("p_max = ");		
-			String input_string = reader.nextLine();			
+		// //Take in input
+		// boolean p_max_confirmed = false;
+		// while(p_max_confirmed == false)
+		// {
+			// System.out.print("p_max = ");		
+			// String input_string = reader.nextLine();			
 
-			//Check if instruction was entered and if so, process it
-			if (input_string.equals("b") || input_string.equals("B") || input_string.equals("back") || input_string.equals("Back"))
-			{
-				userSetPolynomial();
-				printInstructionsPMax();
-			}
-			else if (input_string.equals("r") || input_string.equals("R") || input_string.equals("restart") || input_string.equals("Restart") || input_string.equals("reset") || input_string.equals("Reset"))
-			{
-				userSetPolynomial();
-				printInstructionsPMax();
-			}
-			else if (input_string.equals("q") || input_string.equals("Q") || input_string.equals("quit") || input_string.equals("Quit"))
-			{
-				System.exit(0);
-			}
-			else if (input_string.equals(""))
-			{
-				System.out.println("You did not enter anything. Please try again.");
-			}
+			// //Check if instruction was entered and if so, process it
+			// if (input_string.equals("b") || input_string.equals("B") || input_string.equals("back") || input_string.equals("Back"))
+			// {
+				// userSetPolynomial();
+				// printInstructionsPMax();
+			// }
+			// else if (input_string.equals("r") || input_string.equals("R") || input_string.equals("restart") || input_string.equals("Restart") || input_string.equals("reset") || input_string.equals("Reset"))
+			// {
+				// userSetPolynomial();
+				// printInstructionsPMax();
+			// }
+			// else if (input_string.equals("q") || input_string.equals("Q") || input_string.equals("quit") || input_string.equals("Quit"))
+			// {
+				// System.exit(0);
+			// }
+			// else if (input_string.equals(""))
+			// {
+				// System.out.println("You did not enter anything. Please try again.");
+			// }
 			
-			//Otherwise, check if it's an integer greater than one
-			else
-			{
-				try
-				{
-					int input_int = Integer.parseInt(input_string);
-					if (input_int > 1)
-					{
-						p_max = input_int;
-						p_max_confirmed = true;
-					}
-					else
-					{
-						System.out.println("That is not a valid value of p_max. Please enter an integer greater than one.");
-					}
-				}
-				catch (NumberFormatException e)
-				{
-					System.out.println("I'm sorry, I did not understand your input. Please try again.");
-				}
-			}
-		}
-	}
+			// //Otherwise, check if it's an integer greater than one
+			// else
+			// {
+				// try
+				// {
+					// long input_long = Long.parseLong(input_string);
+					// if (input_long > 1)
+					// {
+						// p_max = input_long;
+						// p_max_confirmed = true;
+					// }
+					// else
+					// {
+						// System.out.println("That is not a valid value of p_max. Please enter an integer greater than one.");
+					// }
+				// }
+				// catch (NumberFormatException e)
+				// {
+					// System.out.println("I'm sorry, I did not understand your input. Please try again.");
+				// }
+			// }
+		// }
+	// }
 	
 	public void userSetAlphaMax()
 	{
@@ -244,13 +243,13 @@ public class InputManager{
 			//Check if instruction was entered and if so, process it
 			if (input_string.equals("b") || input_string.equals("B") || input_string.equals("back") || input_string.equals("Back"))
 			{
-				userSetPMax();
+				// userSetPMax();
 				printInstructionsAlphaMax();
 			}
 			else if (input_string.equals("r") || input_string.equals("R") || input_string.equals("restart") || input_string.equals("Restart") || input_string.equals("reset") || input_string.equals("Reset"))
 			{
 				userSetPolynomial();
-				userSetPMax();
+				// userSetPMax();
 				printInstructionsAlphaMax();
 			}
 			else if (input_string.equals("q") || input_string.equals("Q") || input_string.equals("quit") || input_string.equals("Quit"))
@@ -267,10 +266,10 @@ public class InputManager{
 			{
 				try
 				{
-					int input_int = Integer.parseInt(input_string);
-					if (input_int >= 0)
+					long input_long = Long.parseLong(input_string);
+					if (input_long >= 0)
 					{
-						alpha_max = input_int;
+						alpha_max = input_long;
 						alpha_max_confirmed = true;
 					}
 					else
@@ -299,16 +298,16 @@ public class InputManager{
 		System.out.println();
 	}
 	
-	//Instructions to user for entering alpha_max
-	private void printInstructionsPMax()
-	{
-		System.out.println();
-		System.out.println("We will use Eisenstein's Criterion on the polynomial with all primes \"p\" such that p is less than or equal to \"p_max\".");
-		System.out.println("Please enter the value of p_max you would like to use.");
-		System.out.println("p_max must be an integer that is greater than one, but does not have to be prime.");
-		System.out.println("Enter \"b\" to go back one step, \"r\" to restart or \"q\" to quit.");
-		System.out.println();
-	}
+	// //Instructions to user for entering alpha_max
+	// private void printInstructionsPMax()
+	// {
+		// System.out.println();
+		// System.out.println("We will use Eisenstein's Criterion on the polynomial with all primes \"p\" such that p is less than or equal to \"p_max\".");
+		// System.out.println("Please enter the value of p_max you would like to use.");
+		// System.out.println("p_max must be an integer that is greater than one, but does not have to be prime.");
+		// System.out.println("Enter \"b\" to go back one step, \"r\" to restart or \"q\" to quit.");
+		// System.out.println();
+	// }
 	
 	//Instructions to user for entering alpha_max
 	private void printInstructionsAlphaMax()
