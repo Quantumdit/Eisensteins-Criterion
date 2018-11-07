@@ -12,15 +12,15 @@ public class MathManager{
 	private int n;				//length of all the polynomial arrays
 	private long[][] pascalTriangle;
 	private ArrayList<Long> primes;
-	// private long p_max;
+	private long alpha_min;
 	private long alpha_max;
 	
-	// public MathManager(long[] new_polynomial, long new_p_max, long new_alpha_max){
-	public MathManager(long[] new_polynomial, long new_alpha_max){
+	public MathManager(long[] new_polynomial, long new_alpha_min, long new_alpha_max){
 		setPolynomial(new_polynomial);
 		n = new_polynomial.length;
 		primes = new ArrayList<Long>();
 		primes.add((long)2);
+		setAlphaMin(new_alpha_min);
 		setAlphaMax(new_alpha_max);
 	}
 	
@@ -34,6 +34,11 @@ public class MathManager{
 		// p_max = new_p_max;
 	// }
 	
+	public void setAlphaMin(long new_alpha_min)
+	{
+		alpha_min = new_alpha_min;
+	}
+	
 	public void setAlphaMax(long new_alpha_max)
 	{
 		alpha_max = new_alpha_max;
@@ -43,7 +48,7 @@ public class MathManager{
 	//Returns the working prime and alpha in that order if success
 	public LongPair multiEisensteinCriterion()
 	{
-		for (long alpha = 0; alpha <= alpha_max; alpha++)
+		for (long alpha = alpha_min; alpha <= alpha_max; alpha++)
 		{
 			//Build the shifted_polynomial
 			long[] shifted_polynomial = new long[n];

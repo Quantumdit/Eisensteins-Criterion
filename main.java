@@ -8,7 +8,7 @@ public class main{
 		InputManager im = new InputManager();
 		//debug start
 		im.getInput();
-		MathManager math = new MathManager(im.getPolynomial(), im.getAlphaMax());
+		MathManager math = new MathManager(im.getPolynomial(), im.getAlphaMin(), im.getAlphaMax());
 		LongPair result = math.multiEisensteinCriterion();
 		if (result.getFirst() == 0)
 		{
