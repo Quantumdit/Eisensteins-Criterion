@@ -10,6 +10,7 @@ public class main{
 		im.getInput();
 		MathManager math = new MathManager(im.getPolynomial(), im.getAlphaMin(), im.getAlphaMax());
 		LongPair result = math.multiEisensteinCriterion();
+		System.out.println("");
 		if (result.getFirst() == 0)
 		{
 			System.out.println("Eisenstein's Criterion was inconclusive.");

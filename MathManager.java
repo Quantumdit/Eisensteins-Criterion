@@ -50,6 +50,7 @@ public class MathManager{
 	{
 		for (long alpha = alpha_min; alpha <= alpha_max; alpha++)
 		{
+			System.out.println("Testing alpha = " + alpha + ".");
 			//Build the shifted_polynomial
 			long[] shifted_polynomial = new long[n];
 			for (int i = 0; i < n; i++)
